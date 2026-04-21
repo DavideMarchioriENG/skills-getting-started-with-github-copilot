@@ -6,6 +6,7 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 - View all available extracurricular activities
 - Sign up for activities
+- Unregister participants from activities
 
 ## Getting Started
 
@@ -31,6 +32,28 @@ A super simple FastAPI application that allows students to view and sign up for 
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| DELETE | `/activities/{activity_name}/signup?email=student@mergington.edu` | Unregister a participant from an activity                           |
+
+## Testing
+
+This project uses `pytest` for backend testing in a separate `tests/` directory.
+Tests follow the AAA pattern:
+
+- Arrange: prepare fixture state and test input
+- Act: execute one API request
+- Assert: validate response and resulting state
+
+Run tests from the repository root:
+
+```bash
+pytest -v
+```
+
+Run tests with coverage:
+
+```bash
+pytest --cov=src --cov-report=term-missing
+```
 
 ## Data Model
 
